@@ -59,26 +59,20 @@ var lastPos = null; // position of the hand in the last frame
 
 var start = false;
 
+var thr = 0.0004;
+
 Leap.loop(function (frame) {
 
   if (frame?.hands?.length <= 0) return;
 
   pos = frame.hands[0]?.palmPosition;
   if (!pos) return;
-  
-  if(!lastPos) lastPos = pos;
 
   let n_fingers = frame?.fingers?.filter(f => f.extended).length;
 
   // show 1 finger to start controlling the robot arm
-  if (n_fingers == 1) {
-    start = true;
-    lastPos = pos;
-  }
-
-  // show 3 fingers to stop controlling the robot arm
   if (n_fingers == 3) {
-    start = false;
+    start = true;
     lastPos = pos;
   }
 
@@ -88,23 +82,20 @@ Leap.loop(function (frame) {
   let [lz, lx, ly] = lastPos;
 
   let moveX = (lx - x)/4000;
-  if(Math.abs(moveX) < 0.0001) moveX = 0;
 
-  port.write('G20G91G1X' + moveX + 'F250\n\r', (err) => {
+  if(Math.abs(moveX) >= thr) port.write('G20G91G1X' + moveX + 'F250\n\r', (err) => {
     if (err) console.log('Error on write: ', err.message) 
   });
 
   let moveY = (ly - y)/3000;
-  if(Math.abs(moveY) < 0.0001) moveY = 0;
 
-  port.write('G20G91G1Y' + moveY + 'F250\n\r', (err) => {
+  if(Math.abs(moveY) >= thr) port.write('G20G91G1Y' + moveY + 'F250\n\r', (err) => {
     if (err) return console.log('Error on write: ', err.message)
   });
 
   let moveZ = (lz - z)/2000;
-  if(Math.abs(moveZ) < 0.0001) moveZ = 0;
 
-  port.write('G20G91G1Z' + moveZ + 'F250\n\r', function (err) {
+  if(Math.abs(moveZ) >= thr) port.write('G20G91G1Z' + moveZ + 'F250\n\r', function (err) {
     if (err) return console.log('Error on write: ', err.message)
   });
 
