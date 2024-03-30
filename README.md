@@ -12,15 +12,16 @@ I made this code to control a 3D printed robot arm I built using:
 
 - [leapjs](https://github.com/leapmotion/leapjs)
 
-
 ## Preview
 
-![robotarm]()
+I made a brief YouTube video to show the project:
+
+[![YouTube video](https://img.youtube.com/vi/iXWfNFAuq_E/0.jpg)]([https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE](https://www.youtube.com/watch?v=iXWfNFAuq_E))
 
 ## How to use
 
 - Install the Leap Motion SDK (use v2 if you have the old controller)
-...
+- ... [more soon]
 
 
 ## Project setup
