@@ -11,6 +11,7 @@ I made this code to control a 3D printed robot arm I built using:
 ## Libraries
 
 - [leapjs](https://github.com/leapmotion/leapjs)
+- [serialport](https://www.npmjs.com/package/serialport)
 
 ## Preview
 
@@ -20,8 +21,18 @@ I made a brief YouTube video to show the project:
 
 ## How to use
 
-- Install the Leap Motion SDK (use v2 if you have the old controller)
-- ... [more soon]
+- Install the Leap Motion software (use v2.3.1 you find under "Legacy Downloads" on the Leap Motion offcial website)
+- Open the software and check the "Allow Web Apps" checkbox to turn on the WebSocket server that provides tracking data to web applications
+- Use leapjs to connect to Leap Motion with JavaScript
+- Setup your Arduino with GRBL
+- Connect to Arduino using Serial Communication (serialport.js library)
+- Now you can send GCODE to Arduino based on the data you receive from the Leap Motion
+
+⚠ IF YOU ARE USING WINDOWS 10:
+
+There is a bug in the Leap Motion software on Windows 10, here is how I fixed it:
+
+https://forums.leapmotion.com/t/resolved-windows-10-fall-creators-update-bugfix/6585 
 
 
 ## Project setup
