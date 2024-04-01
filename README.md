@@ -19,6 +19,10 @@ I made a brief YouTube video to show the project:
 
 [![YouTube video](https://img.youtube.com/vi/iXWfNFAuq_E/0.jpg)](https://www.youtube.com/watch?v=iXWfNFAuq_E)
 
+## Diagram
+
+![Diagramma senza titolo-3](https://github.com/1boch1/leap-motion-robot-arm/assets/69087218/2a3eb270-5d93-443f-8cae-609876ee1f5b)
+
 ## How to use
 
 - Install the Leap Motion software (use v2.3.1 you find under "Legacy Downloads" on the Leap Motion offcial website)
